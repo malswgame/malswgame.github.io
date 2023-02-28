@@ -1,144 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>SWEngine Games</title>
   <style>
-    * {
+    /* Main Styles */
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      font-family: 'Source Han Sans CN', sans-serif;
+      background-color: #fff;
+      color: #333;
     }
-css
-Copy code
-body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  background-color: #f5f5f5;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #6f7bff, #ff65a3);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+    }
+
+    .container__logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 150px;
+      margin-right: 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+      animation: logoRotate 10s linear infinite;
+    }
+
+    .container__logo img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .container__title {
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 2rem;
+      color: #fff;
+      animation: titleColor 5s ease infinite;
+    }
+
+    .container__text {
+      max-width: 600px;
+      text-align: center;
+      line-height: 1.5;
+      font-size: 1.1rem;
+      color: #fff;
+      animation: textOpacity 5s ease infinite;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .contact__item {
+      display: flex;
+      align-items: center;
+      margin-right: 1rem;
+      color: #fff;
+      animation: contactFade 5s ease infinite;
+    }
+
+    .contact__icon {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    /* Animations */
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes logoRotate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes titleColor {
+      0% {
+        color: #fff;
+      }
+
+      50% {
+        color: #ff65a3;
+      }
+
+      100% {
+        color: #fff;
+      }
+    }
+
+    @keyframes textOpacity {
+      0% {
+        opacity: 0
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+@keyframes contactFade {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.header__logo {
-  width: 60px;
-  height: 60px;
-  margin-right: 20px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.header__logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.header__title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #333;
-  letter-spacing: 1px;
-}
-
-.description {
-  margin-bottom: 20px;
-}
-
-.description p {
-  margin-bottom: 10px;
-}
-
-.contact {
-  margin-top: 20px;
-}
-
-.contact__item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.contact__icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: #333;
-  color: #fff;
-  font-size: 1.2rem;
-  transition: all 0.3s ease-in-out;
-}
-
-.contact__icon:hover {
-  transform: scale(1.2);
-}
-
-.contact__text {
-  font-size: 1.2rem;
-  color: #333;
-  letter-spacing: 1px;
-}
-
+/* Media Queries */
 @media screen and (max-width: 768px) {
-  .header__title {
+  .container__title {
     font-size: 1.5rem;
   }
 
-  .contact__icon {
+  .container__text {
     font-size: 1rem;
   }
+}
 
-  .contact__text {
-    font-size: 1rem;
+@media screen and (max-width: 480px) {
+  .container__logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 0.5rem;
+  }
+
+  .container__title {
+    font-size: 1.2rem;
+  }
+
+  .container__text {
+    font-size: 0.9rem;
+  }
+
+  .contact__item {
+    font-size: 0.8rem;
   }
 }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">
-      <div class="header__logo">
-        <img src="https://github.com/malswgame/malswgame.github.io/blob/main/dp_icon.jpg?raw=true" alt="SWEngine Games Logo">
-      </div>
-      <h1 class="header__title">SWEngine Games</h1>
+    <div class="container__logo">
+      <img src="https://github.com/malswgame/malswgame.github.io/blob/main/dp_icon.jpg?raw=true" alt="SWEngine Games Logo">
     </div>
-    <div class="description">
-      <p>We are thrilled to announce that our games will soon be available on both the iOS App Store and Google Play Store. This means that players from all around the world will be able to easily download and enjoy our games on their mobile devices.</p>
-<p>As an independent developer, we are committed to making our games accessible to as many players as possible. By releasing our games on multiple platforms, we hope to reach a wider audience and provide more people with the opportunity to experience our unique and exciting games.</p>
-<p>We are constantly working to improve and enhance our games, and we will continue to release new content and updates on a regular basis. We believe that our games have the potential to entertain and inspire players for years to come, and we are excited to see where the future will take us.</p>
-<p>Thank you for your continued support, and we look forward to bringing our games to even more players in the future.</p>
-</div>
-<div class="contact">
-<div class="contact__item">
-<div class="contact__icon">
-<i class="fa fa-envelope"></i>
-</div>
-<div class="contact__text">
-<a href="mailto:swenginegames@163.com">swenginegames@163.com</a>
-</div>
-</div>
-</div>
-
+    <h1 class="container__title">SWEngine Games</h1>
+    <p class="container__text">We are thrilled to announce that our games will soon be available on both the iOS App Store and Google Play Store. This means that players from all around the world will be able to easily download and enjoy our games on their mobile devices. As an independent developer, we are committed to making our games accessible to as many players as possible. By releasing our games on multiple platforms, we hope to reach a wider audience and provide more people with the opportunity to experience our unique and exciting games. We are constantly working to improve and enhance our games, and we will continue to release new content and updates on a regular basis. We believe that our games have the potential to entertain and inspire players for years to come, and we are excited to see where the future will take us. Thank you for your continued support, and we look forward to bringing our games to even more players in the future.</p>
+    <div class="contact">
+      <div class="contact__item"><i class="fa fa-envelope contact__icon"></i>swenginegames@163.com</div>
+      <div class="contact__item"><i class="fa fa-user contact__icon"></i>@YANG.GQ</div>
+    </div>
   </div>
 </body>
 </html>
